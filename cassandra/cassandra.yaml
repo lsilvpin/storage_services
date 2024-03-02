@@ -1,0 +1,27 @@
+rpc_address: localhost
+broadcast_rpc_address: localhost
+write_request_timeout_in_ms: 2000
+partitioner: org.apache.cassandra.dht.Murmur3Partitioner
+seed_provider:
+  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+    parameters:
+      - seeds: "127.0.0.1"
+
+cluster_name: CassandraCluster
+
+listen_address: localhost
+rpc_address: 0.0.0.0
+
+authenticator: AllowAllAuthenticator
+authorizer: AllowAllAuthorizer
+
+data_file_directories:
+  - /var/lib/cassandra/data
+
+commitlog_directory: /var/lib/cassandra/commitlog
+
+num_tokens: 256
+endpoint_snitch: SimpleSnitch
+
+commitlog_sync: periodic
+commitlog_sync_period_in_ms: 10000
